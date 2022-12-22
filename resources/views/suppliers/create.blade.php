@@ -45,7 +45,7 @@
                                 <td><input type="text" class="form-control" name="contact_person" id="contact_person"/></td>
                             </tr>
                             <tr>
-                                <th>rawmaterial of Measure</th>
+                                <th>Rawmaterial</th>
                                 <td>
                                 <select class="form-control"
                                         name="rawmaterial_id" required>

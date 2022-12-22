@@ -15,7 +15,7 @@ class ProductiontrxsController extends Controller
 {
     public function index()
     {
-        $data = Storetrx::all()->sortBy('barcode_id');
+        $data = Storetrx::where('trxtype_id', '=', 1)->orderBy('barcode_id')->get();
 
         return view ('productions.index', ['data'=>$data]);
     }
@@ -24,7 +24,7 @@ class ProductiontrxsController extends Controller
        $ptn_no =  $request->ptn_id;
        $ptnid = Barcode::where('id', $ptn_no)->first();
 
-       $data = Storetrx::where('barcode_id', $ptn_no)->get();
+       $data = Storetrx::where('barcode_id', $ptn_no)->where('trxtype_id', '=', 1)->get();
 
        $productions = Productiontrx::where('ptn_no', $ptnid->ptn_no)->first();
 
@@ -61,12 +61,6 @@ class ProductiontrxsController extends Controller
         return view('productions.list', compact('data', 'ptn'));
     }
 
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function create()
     {
         $barcodes = Barcode::all();
@@ -76,12 +70,6 @@ class ProductiontrxsController extends Controller
         return view ('productions.create', ['barcodes'=>$barcodes, 'storetrxs'=>$storetrxs]);
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
        // dd($request->all());
@@ -112,12 +100,6 @@ class ProductiontrxsController extends Controller
         return redirect()->route('productions.list')->with('success', 'New recored entered successfully');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function show($id)
     {
         $ptn_no =  $id;
@@ -129,12 +111,6 @@ class ProductiontrxsController extends Controller
         return view('productions.show', compact('productions'));
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function edit($id)
     {
         $ptn_no =  $id;
@@ -169,13 +145,6 @@ class ProductiontrxsController extends Controller
         return redirect()->route('productions.index')->with('message', 'Please you can only update this record');
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function update(Request $request, $id)
     {
         $data = Productiontrx::find($id);
@@ -187,12 +156,6 @@ class ProductiontrxsController extends Controller
         return redirect()->route('productions.index')->with('error', 'Records not found');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function destroy($id)
     {
         $data = Productiontrx::find($id);

@@ -22,10 +22,9 @@
                             <th>#</th>
                             <th>Raw Material</th>
                             <th>Quantity</th>
-                            <th>Total Price</th>
                             <th>Re-stock Level</th>
-                            <th>Date of Transaction</th>
-                            <th></th>
+                            <th>Last Update</th>
+                            <th>Re-stock</th>
 
                         </tr>
                         </thead>
@@ -34,9 +33,9 @@
                             <th>#</th>
                             <th>Raw Material</th>
                             <th>Quantity</th>
-                            <th>Total Price</th>
                             <th>Re-stock Level</th>
-                            <th>Date of Supply</th>
+                            <th>Last Update</th>
+                            <th>Re-stock</th>
                         </tr>
                         </tfoot>
                         <tbody>
@@ -46,7 +45,6 @@
                                     <td>{{ $loop->iteration }}</td>
                                     <td>{{ $d->rawmaterials->name }}</td>
                                     <td>{{ $d->qty }}</td>
-                                    <td>{{ $d->total_price }}</td>
                                     <td>{{ $d->re_order }}</td>
                                     <td>{{ $d->created_at }}</td>
                                     <td>

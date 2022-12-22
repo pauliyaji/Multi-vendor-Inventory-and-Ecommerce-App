@@ -31,6 +31,9 @@
                             <tr>
                                 <th>Email</th>
                                 <td><input type="text" class="form-control" name="email" id="email"/></td>
+                                @if ($errors->has('email'))
+                                    <span class="text-danger text-left">{{ $errors->first('email') }}</span>
+                                @endif
                             </tr>
                             <tr>
                                 <th>Phone</th>
@@ -80,7 +83,7 @@
                             <tr>
                                 <th>CV</th>
                                 <td>
-                                <textarea class="form-control" name="cv" required></textarea>
+                                <textarea class="form-control" name="cv"></textarea>
                                 </td>
                             </tr>
                             <tr>
@@ -89,7 +92,7 @@
                             </tr>
                             <tr>
                                 <th>Date of Engagement</th>
-                                <td><input type="date" class="form-control" name="date_of_engagement" id="date_of_engagement" required/></td>
+                                <td><input type="date" class="form-control" name="date_of_engagement" id="date_of_engagement"/></td>
                             </tr>
                             <tr>
                                 <th>Health Info</th>
@@ -97,7 +100,7 @@
                             </tr>
                             <tr>
                                 <th>Coverage Area</th>
-                                <td><input type="text" class="form-control" name="coverage_area" id="coverage_area" required/></td>
+                                <td><input type="text" class="form-control" name="coverage_area" id="coverage_area"/></td>
                             </tr>
                             <tr>
                                 <td colspan="2">

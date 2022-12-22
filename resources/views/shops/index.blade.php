@@ -33,8 +33,8 @@
                         </thead>
 
                         <tbody>
-                        @if($data)
-                            @foreach($data as $d)
+
+                            @forelse($data as $d)
                                 <tr>
                                     <td>{{ $loop->iteration }}</td>
                                     <td>{{ $d->shop_no }}</td>
@@ -58,8 +58,12 @@
                                     </td>
 
                                 </tr>
-                            @endforeach
-                        @endif
+
+                        @empty
+                            <tr>
+                                <p>We have no registered shops yet. Please contact the Administrator</p>
+                            </tr>
+                            @endforelse
                         </tbody>
                     </table>
                 </div>

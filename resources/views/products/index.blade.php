@@ -52,7 +52,12 @@
                                     <td>{{ $d->batch_quantity }} </td>
                                     <td>{{ $d->product_code }}</td>
                                     {{--displaying html in laravel--}}
-                                    <td>   <img src="{{asset('myproducts/barcodes/'.$d->barcode) }}"></td>
+                                    <td>
+                                        <div class="card text-center">
+                                        <p class="name">Livingnero Water Company</p>
+                                        <img src="{{asset('myproducts/barcodes/'.$d->barcode) }}">
+                                        </div>
+                                    </td>
                                     <td>
                                         @if(Auth::user()->id == 1)
                                             <a href="{{ route('products.edit', $d->id) }}" class="btn btn-primary btn-sm"><i class="fa fa-edit"></i></a>

@@ -30,7 +30,7 @@ class UsersController extends Controller
     {
         $request->validate([
           'name' => 'required',
-          'email' => 'required:unique',
+          'email' => 'required|unique:users',
           'phone' => 'required',
           'password' => 'required',
           'state_id' => 'required',

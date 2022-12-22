@@ -66,6 +66,7 @@
 
         <!-- STAFF MASTERS  -->
 
+        @can('customers.index')
         <li class="nav-item">
             <a class="nav-link @if(!request()->is('admin/staff*')) collapsed @endif" href="#" data-toggle="collapse"
                data-target="#collapseStaff1" aria-expanded="true" aria-controls="collapseTwo">
@@ -80,8 +81,8 @@
                 </div>
             </div>
         </li>
-
-        @if(Auth::user()->roles->first()->id == 1)
+            @endcan
+        @can('factorystores.index')
         <li class="nav-item">
             <a class="nav-link @if(!request()->is('admin/staff*')) collapsed @endif" href="#" data-toggle="collapse"
                data-target="#collapseStaff2" aria-expanded="true" aria-controls="collapseTwo">
@@ -98,7 +99,8 @@
                 </div>
             </div>
         </li>
-
+        @endcan
+        @can('productions.index')
         <li class="nav-item">
             <a class="nav-link @if(!request()->is('admin/staff*')) collapsed @endif" href="#" data-toggle="collapse"
                data-target="#collapseStaff5" aria-expanded="true" aria-controls="collapseTwo">
@@ -115,7 +117,8 @@
                 </div>
             </div>
         </li>
-
+        @endcan
+        @can('stocks.index')
         <li class="nav-item">
             <a class="nav-link @if(!request()->is('admin/staff*')) collapsed @endif" href="#" data-toggle="collapse"
                data-target="#collapseStaff6" aria-expanded="true" aria-controls="collapseTwo">
@@ -131,7 +134,8 @@
                 </div>
             </div>
         </li>
-        @endif
+        @endcan
+        @can('transactions.myshop')
         <li class="nav-item">
             <a class="nav-link @if(!request()->is('admin/staff*')) collapsed @endif" href="#" data-toggle="collapse"
                data-target="#collapseStaff7" aria-expanded="true" aria-controls="collapseTwo">
@@ -157,7 +161,7 @@
                 </div>
             </div>
         </li>
-        @if(Auth::user()->roles->first()->id == 4 )
+
         <li class="nav-item">
             <a class="nav-link @if(!request()->is('admin/staff*')) collapsed @endif" href="#" data-toggle="collapse"
                data-target="#collapseStaff8" aria-expanded="true" aria-controls="collapseTwo">
@@ -177,7 +181,7 @@
                 </div>
             </div>
         </li>
-        @endif
+        @endcan
         @if(Auth::user()->roles->first()->id == 1)
         <li class="nav-item">
                 <a class="nav-link @if(!request()->is('admin/staff*')) collapsed @endif" href="#" data-toggle="collapse"

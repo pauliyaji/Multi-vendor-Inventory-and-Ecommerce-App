@@ -50,7 +50,7 @@
                     <div class="row">
                         <div class="col-md-12 col-xs-12 form-group">
                             {!! Form::label('unit_price', 'Unit Price', ['class' => 'control-label']) !!}
-                            {!! Form::text('unit_price', old('unit_price'), ['class' => 'form-control', 'placeholder' => '']) !!}
+                            {!! Form::number('unit_price', old('unit_price'), ['class' => 'form-control', 'placeholder' => '']) !!}
                             <p class="help-block"></p>
                             @if($errors->has('unit_price'))
                                 <p class="help-block">
@@ -62,7 +62,7 @@
                     <div class="row">
                         <div class="col-md-12 col-xs-12 form-group">
                             {!! Form::label('re_order', 'Re-Order Level', ['class' => 'control-label']) !!}
-                            {!! Form::text('re_order', old('re_order'), ['class' => 'form-control', 'placeholder' => '']) !!}
+                            {!! Form::number('re_order', old('re_order'), ['class' => 'form-control', 'placeholder' => '']) !!}
                             <p class="help-block"></p>
                             @if($errors->has('re_order'))
                                 <p class="help-block">

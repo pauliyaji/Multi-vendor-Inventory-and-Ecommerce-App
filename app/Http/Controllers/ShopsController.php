@@ -16,7 +16,7 @@ class ShopsController extends Controller
     }
 
     public function create(){
-     // A new shop is created at the point of creating a new user
+     // A new shop is created at the point of updating a new user
     }
 
     public function show($id){

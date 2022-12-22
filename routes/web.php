@@ -50,6 +50,7 @@ use Maatwebsite\Excel\Facades\Excel;
                 'sales', 'salesreturned','total_stocks', 'prdrep', 'rawmats'));
         }elseif(Auth::user()->roles->first()->id == 4){
             $shop_id = Shop::where('user_id', Auth::user()->id)->first();
+            //dd($shop_id);
             $today = Carbon::today()->format('Y-m-d');
             $sevendate = Carbon::now()->subDays(7);
             $thirtydate = Carbon::now()->subDays(30);
@@ -83,6 +84,8 @@ use Maatwebsite\Excel\Facades\Excel;
 
             return view('sales_dashboard', compact('thirtysales', 'sevensales', 'shopsales', 'allstocks','customers', 'shops',
                 'sales', 'salesreturned','total_stocks'));
+        }else{
+            return view('production_dashboard');
         }
 
     })->middleware(['auth'])->name('dashboard');
@@ -95,14 +98,7 @@ use Maatwebsite\Excel\Facades\Excel;
     });
 
     Route::group(['middleware' => ['auth', 'permission']], function() {
-        /**
-         * Logout Routes
-         */
-        //Route::get('/logout', 'LogoutController@perform')->name('logout.perform');
 
-        /**
-         * User Routes
-         */
         Route::group(['prefix' => 'users'], function() {
 
             Route::get('/', 'App\Http\Controllers\UsersController@index')->name('users.index');

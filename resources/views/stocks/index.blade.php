@@ -15,18 +15,7 @@
                 </h6>
             </div>
             <div class="card-body">
-             {{--   @if(Session::has('success'))
-                    <p class="text-success">{{ Session('success') }}</p>
-                @endif
-                @if(Session::has('message'))
-                    <p class="text-danger">{{ Session('message') }}</p>
-                @endif
-                <div class="d-flex my-2 ">
-                    <a href="" class="btn btn-primary m-2 me-1">Export Data</a>
-                    --}}{{--<button type="button" class="btn btn-success m-2" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                        Import Data
-                    </button>--}}{{--
-                </div>--}}
+
                 <div class="table-responsive">
                     <table class="table table-bordered" id="dataTable">
                         <thead style="background-color: #4e73df; color: white;">
@@ -52,8 +41,8 @@
                                     <td>{{ $d->products->name }}</td>
                                     <td>{{ $d->qty }}</td>
                                     <td>
-                                        <div class="card">
-                                            <p class="name">Hope Bassey Water Company</p>
+                                        <div class="card align-center">
+                                            <p class="name">Livingnero Water Company</p>
                                             {!! DNS1D::getBarcodeHTML($d->products->name, "C128",1.4,22) !!}
                                             <p class="pid">{{$d->sku }}</p>
                                         </div>

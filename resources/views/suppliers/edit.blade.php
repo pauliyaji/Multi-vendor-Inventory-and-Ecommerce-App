@@ -46,7 +46,7 @@
                                 <td><input type="text" class="form-control" value="{{ $data->contact_person }}" name="contact_person" id="contact_person"/></td>
                             </tr>
                             <tr>
-                                <th>rawmaterial of Measure</th>
+                                <th>rawmaterial</th>
                                 <td>
                                     <select class="form-control"
                                             name="rawmaterial_id" required>

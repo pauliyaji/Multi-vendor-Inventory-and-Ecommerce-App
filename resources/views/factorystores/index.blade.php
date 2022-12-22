@@ -35,8 +35,7 @@
                         </thead>
 
                         <tbody>
-                        @if($data)
-                            @foreach($data as $d)
+                            @forelse($data as $d)
                                 <tr>
                                     <td>{{ $loop->iteration }}</td>
                                     <td>{{ $d->rawmaterial->name }}</td>
@@ -71,8 +70,12 @@
                                     </td>
 
                                 </tr>
-                            @endforeach
-                        @endif
+                                @empty
+                                    <tr>
+                                        <p>No Available Records</p>
+                                    </tr>
+                            @endforelse
+
                         </tbody>
                         <tfoot style="background-color: #023054; color:white;">
                         <tr>
@@ -135,6 +138,12 @@
                 };
 
                 // Total over all pages
+                total0 = api
+                    .column(3)
+                    .data()
+                    .reduce(function (a, b) {
+                        return intVal(a) + intVal(b);
+                    });
                 total1 = api
                     .column(4)
                     .data()
@@ -155,6 +164,12 @@
                     }, 0);
 
                 // Total over this page
+                pageTotal0 = api
+                    .column(3, { page: 'current' })
+                    .data()
+                    .reduce(function (a, b) {
+                        return intVal(a) + intVal(b);
+                    });
                 pageTotal = api
                     .column(4, { page: 'current' })
                     .data()
@@ -174,6 +189,7 @@
                         return intVal(a) + intVal(b);
                     }, 0);
                 // Update footer
+                $(api.column(3).footer()).html(pageTotal/10).toString();
                 $(api.column(4).footer()).html('₦' + parseFloat(pageTotal, 10).toFixed(2).replace(/(\d)(?=(\d{3})+\.)/g, "$1,").toString());
                 $(api.column(5).footer()).html('₦' + parseFloat(pageTotal2, 10).toFixed(2).replace(/(\d)(?=(\d{3})+\.)/g, "$1,").toString());
                 $(api.column(6).footer()).html('₦' + parseFloat(pageTotal3, 10).toFixed(2).replace(/(\d)(?=(\d{3})+\.)/g, "$1,").toString());

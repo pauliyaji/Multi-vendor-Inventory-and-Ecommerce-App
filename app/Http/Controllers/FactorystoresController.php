@@ -47,12 +47,6 @@ class FactorystoresController extends Controller
             'paymentstatuses'=>$paymentstatuses, 'suppliers'=>$suppliers, 'rawmaterials'=>$rawmaterials]);
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
         $request->validate([
@@ -98,19 +92,13 @@ class FactorystoresController extends Controller
         if($storereport != null){
             $oldqty = $storereport->qty;
             $newqty = $oldqty + $data->qty;
-            $oldtotalprice = $storereport->total_price;
-            $newtotalprice = $oldtotalprice + $data->total_price;
-            $storereport->rawmaterial = $item->id;
             $storereport->qty = $newqty;
-            $storereport->total_price = $newtotalprice;
             $storereport->re_order = $re_order;
             $storereport->update();
         }else{
             $newrec = new Storereport();
             $newrec->rawmaterial = $item->id;
             $newrec->qty = $data->qty;
-            $newrec->total_price = $data->total_price;
-
             $orderLevel = Session::get('order_level');
             $newrec->re_order = $orderLevel;
             $newrec->save();
@@ -118,24 +106,12 @@ class FactorystoresController extends Controller
         return redirect()->route('factorystores.index')->with('success', 'Record added successfully');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function show($id)
     {
         $data = Factorystore::find($id);
         return view('factorystores.show', ['data'=>$data]);
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function edit($id)
     {
         $data = Factorystore::find($id);
@@ -148,13 +124,6 @@ class FactorystoresController extends Controller
             'paymentstatus'=>$paymentstatus, 'suppliers'=>$suppliers, 'rawmaterials'=>$rawmaterials]);
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function update(Request $request, $id)
     {
 
@@ -184,12 +153,6 @@ class FactorystoresController extends Controller
         return redirect()->route('factorystores.index')->with('success', 'Record updated successfully');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function destroy($id)
     {
         $data = Factorystore::find($id);

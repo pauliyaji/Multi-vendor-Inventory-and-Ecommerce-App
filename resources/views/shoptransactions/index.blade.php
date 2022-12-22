@@ -57,23 +57,23 @@
                                         @endif
                                     </td>
                                     <td>
-                                        <div class="btn-group">
-                                            <button class="btn btn-secondary btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                Action
-                                            </button>
-                                            <div class="dropdown-menu">
-{{--
-                                                <a href="{{ route('shoptransactions.edit', $d->id) }}" class="btn btn-primary btn-sm"><i class="fa fa-edit"></i></a>
---}}
-                                                @if(Auth::user()->id == 1)
-                                                    <form action="{{ route('shoptransactions.destroy', $d->id) }}" method="POST" onsubmit="return confirm('Are you sure you want to delete this data?');" style="display: inline-block;">
-                                                        <input type="hidden" name="_method" value="DELETE">
-                                                        <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                                                        <button class="btn btn-danger btn-sm" type="submit"><i class="fa fa-trash"></i></button>
-                                                    </form>
-                                                @endif
-                                            </div>
-                                        </div>
+{{--                                        <div class="btn-group">--}}
+{{--                                            <button class="btn btn-secondary btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">--}}
+{{--                                                Action--}}
+{{--                                            </button>--}}
+{{--                                            <div class="dropdown-menu">--}}
+{{----}}
+{{--                                                <a href="{{ route('shoptransactions.edit', $d->id) }}" class="btn btn-primary btn-sm"><i class="fa fa-edit"></i></a>--}}
+{{----}}
+{{--                                                @if(Auth::user()->id == 1)--}}
+{{--                                                    <form action="{{ route('shoptransactions.destroy', $d->id) }}" method="POST" onsubmit="return confirm('Are you sure you want to delete this data?');" style="display: inline-block;">--}}
+{{--                                                        <input type="hidden" name="_method" value="DELETE">--}}
+{{--                                                        <input type="hidden" name="_token" value="{{ csrf_token() }}">--}}
+{{--                                                        <button class="btn btn-danger btn-sm" type="submit"><i class="fa fa-trash"></i></button>--}}
+{{--                                                    </form>--}}
+{{--                                                @endif--}}
+{{--                                            </div>--}}
+{{--                                        </div>--}}
                                     </td>
 
                                 </tr>

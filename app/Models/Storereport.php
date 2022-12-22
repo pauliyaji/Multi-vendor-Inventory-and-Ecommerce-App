@@ -11,9 +11,7 @@ class Storereport extends Model
 
     protected $fillable =[
         'rawmaterial',
-        'total_qty',
         'qty',
-        'total_price',
         're_order',
     ];
 
